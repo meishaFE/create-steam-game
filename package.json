@@ -6,6 +6,9 @@
   "author": "jayden <jxdjayden@gmail.com>",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "eslint": "^5.6.1",
     "execa": "^1.0.0",
