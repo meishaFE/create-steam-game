@@ -32,9 +32,6 @@
     "*.{js,md,css}": [
       "prettier --trailing-comma es5 --single-quote --write",
       "git add"
-    ],
-    "yarn.lock": [
-      "git rm --cached"
     ]
   }
 }
