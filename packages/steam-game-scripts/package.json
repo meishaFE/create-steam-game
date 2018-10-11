@@ -1,0 +1,14 @@
+{
+  "name": "steam-game-scripts",
+  "version": "0.0.0",
+  "description": "Configuration and scripts for steam game.",
+  "main": "null",
+  "author": "Jayden<jxdjayden@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "steam-game-scripts": "./bin/index.js"
+  },
+  "engines": {
+    "node": ">=9"
+  }
+}
