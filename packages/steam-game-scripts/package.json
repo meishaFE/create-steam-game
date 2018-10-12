@@ -8,6 +8,12 @@
   "bin": {
     "steam-game-scripts": "./bin/index.js"
   },
+  "files": [
+    "scripts",
+    "config",
+    "bin",
+    "yarn.lock.cached"
+  ],
   "engines": {
     "node": ">=9"
   }

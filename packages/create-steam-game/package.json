@@ -5,7 +5,7 @@
   "author": "Jayden<jxdjayden@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=8"
+    "node": ">=4"
   },
   "files": [
     "index.js",
