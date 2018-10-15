@@ -1,4 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-console.log('init');
+module.exports = function init() {
+  console.log('init');
+};

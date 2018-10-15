@@ -124,12 +124,12 @@ function createSteamGame(name, packages) {
 
 function run(root, gameName, packages, useYarn) {
   const allDependencies = [
-    'babel-polyfill',
-    'vue',
-    'vue-router',
-    'vuex',
-    'meisha-fe-watch',
-    'katex',
+    // 'babel-polyfill',
+    // 'vue',
+    // 'vue-router',
+    // 'vuex',
+    // 'meisha-fe-watch',
+    // 'katex',
     'steam-game-scripts',
     ...packages,
   ];
@@ -144,13 +144,15 @@ function run(root, gameName, packages, useYarn) {
       return install(root, useYarn, allDependencies, isOnline);
     })
     .then(async () => {
+      // FIXME bug
       await executeNodeScript(
         {
-          cwd: process.cwd(),
+          cwd: root,
           args: [],
         },
-        [root, gameName, process.cwd()],
+        [root],
         `
+      console.log(process.cwd());
       var init = require('steam-game-scripts/scripts/init.js');
       init.apply(null, JSON.parse(process.argv[1]));
       `
