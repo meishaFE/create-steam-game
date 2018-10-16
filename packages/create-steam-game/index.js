@@ -124,24 +124,27 @@ function createSteamGame(name, packages) {
 
 function run(root, gameName, packages, useYarn) {
   const allDependencies = [
-    // 'babel-polyfill',
-    // 'vue',
-    // 'vue-router',
-    // 'vuex',
-    // 'meisha-fe-watch',
-    // 'katex',
-    'steam-game-scripts',
+    'babel-polyfill',
+    'vue',
+    'vue-router',
+    'vuex',
+    'meisha-fe-watch',
+    'katex',
     ...packages,
   ];
+
+  const allDevDependencies = ['steam-game-scripts'];
 
   console.log('Installing packages. This might take a couple of minutes.');
 
   checkIfOnline(useYarn)
     .then(isOnline => {
-      console.log(`Installing ${allDependencies.join(' ')}...`);
+      console.log(`Installing ${chalk.cyan(allDependencies.join(' '))}...`);
       console.log();
 
-      return install(root, useYarn, allDependencies, isOnline);
+      return install(root, useYarn, allDependencies, isOnline).then(() =>
+        install(root, useYarn, allDevDependencies, isOnline, true)
+      );
     })
     .then(async () => {
       // FIXME bug
@@ -197,7 +200,7 @@ function run(root, gameName, packages, useYarn) {
     });
 }
 
-function install(root, useYarn, dependencies, isOnline) {
+function install(root, useYarn, dependencies, isOnline, isDev = false) {
   return new Promise((resolve, reject) => {
     let command;
     let args;
@@ -205,6 +208,10 @@ function install(root, useYarn, dependencies, isOnline) {
     if (useYarn) {
       command = 'yarnpkg';
       args = ['add', '--exact'];
+
+      if (isDev) {
+        args.push('--dev');
+      }
 
       if (!isOnline) {
         args.push('--offline');
@@ -221,13 +228,13 @@ function install(root, useYarn, dependencies, isOnline) {
       }
     } else {
       command = 'npm';
-      args = [
-        'install',
-        '--save',
-        '--save-exact',
-        '--loglevel',
-        'error',
-      ].concat(dependencies);
+      args = ['install', '--save', '--save-exact', '--loglevel', 'error'];
+
+      if (isDev) {
+        args.push('--save-dev');
+      }
+
+      args = args.concat(dependencies);
     }
 
     const child = spawn(command, args, { stdio: 'inherit' });
