@@ -87,5 +87,6 @@
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.1.4",
     "webpack-stats-plugin": "^0.2.1"
-  }
+  },
+  "gitHead": "e863d3829f53683ad79852e6ea1e53f9b942a69b"
 }

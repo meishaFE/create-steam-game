@@ -22,6 +22,7 @@ const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 switch (script) {
   case 'build':
   case 'start':
+  case 'init':
   case 'test': {
     const result = spawn.sync(
       'node',
@@ -47,7 +48,6 @@ switch (script) {
       process.exit(1);
     }
     process.exit(result.status);
-    break;
   }
   default:
     console.log('Unknown script "' + script + '".');

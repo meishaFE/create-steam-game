@@ -147,15 +147,13 @@ function run(root, gameName, packages, useYarn) {
       );
     })
     .then(async () => {
-      // FIXME bug
       await executeNodeScript(
         {
           cwd: root,
           args: [],
         },
-        [root],
+        [root, gameName],
         `
-      console.log(process.cwd());
       var init = require('steam-game-scripts/scripts/init.js');
       init.apply(null, JSON.parse(process.argv[1]));
       `
