@@ -12,8 +12,8 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 module.exports = {
   dev: {
     // Paths
-    assetsSubDirectory: resolveApp('static'),
-    assetsPublicPath: '/',
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/game/',
     proxyTable,
 
     // Various Dev Server settings

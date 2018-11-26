@@ -11,7 +11,6 @@ process.on('unhandledRejection', err => {
 
 const spawn = require('cross-spawn');
 const args = process.argv.slice(2);
-console.log(args);
 
 const scriptIndex = args.findIndex(
   x => x === 'build' || x === 'start' || x === 'test'

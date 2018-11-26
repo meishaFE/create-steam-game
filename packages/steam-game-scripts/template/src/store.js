@@ -1,15 +1,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { miniModule } from 'Root/common/minigameStore';
+import { GAME_FRONT_ID } from './config';
 
 const state = Object.assign(
   {
     userInfo: {},
     sessionInfo: {},
     gameInfo: {},
+
     gameList: [], // 金币游戏列表
+
+    playId: '', // 线路计算正确后才会有的游戏id
+
+    isCanToggleLang: false, // 是否可以切换语言
+    gameOver: false, // 游戏是否结束
   },
-  miniModule.state
+  steamgame.miniModule.state
 );
 
 const mutations = Object.assign(
@@ -26,8 +32,17 @@ const mutations = Object.assign(
     SETGAMELIST(state, gameList) {
       state.gameList = gameList;
     },
+    SETPLAYID(state, playId) {
+      state.playId = playId;
+    },
+    SETISCANTOGGLELANG(state, isCan) {
+      state.isCanToggleLang = isCan;
+    },
+    SETGAMEOVER(state, gameOver) {
+      state.gameOver = gameOver;
+    },
   },
-  miniModule.mutations
+  steamgame.miniModule.mutations
 );
 
 const actions = Object.assign(
@@ -48,7 +63,7 @@ const actions = Object.assign(
             res => {
               const sessionInfo =
                 Array.isArray(res.data) &&
-                res.data.find(item => item.gameId === 'rallyGold');
+                res.data.find(item => item.gameId === GAME_FRONT_ID);
               if (sessionInfo) {
                 commit('SETSESSIONINFO', sessionInfo);
                 resolve(sessionInfo);
@@ -118,7 +133,7 @@ const actions = Object.assign(
         );
     },
   },
-  miniModule.actions
+  steamgame.miniModule.actions
 );
 
 const getters = Object.assign(
@@ -135,8 +150,17 @@ const getters = Object.assign(
     gameInfo(state) {
       return state.gameInfo;
     },
+    playId(state) {
+      return state.playId;
+    },
+    isCanToggleLang(state) {
+      return state.isCanToggleLang;
+    },
+    gameOver(state) {
+      return state.gameOver;
+    },
   },
-  miniModule.getters
+  steamgame.miniModule.getters
 );
 
 Vue.use(Vuex);

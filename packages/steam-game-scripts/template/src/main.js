@@ -2,25 +2,31 @@ import MeishaWatch from 'meisha-fe-watch';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
+// import katex for mathematical formula
 import katex from 'katex/dist/katex.min.js';
 import 'katex/dist/katex.min.css';
 
-import commonFilters from 'Root/common/filters';
-import COMMON_API from 'Root/common/config/api';
-import * as $http from 'Root/common/utils/request';
-import { setAllGameLang } from 'Root/common/utils/lang';
-
+import {
+  API,
+  ENV,
+  GAME_SERVER_ID,
+  GAME_FRONT_ID,
+  IS_GAME_HAS_EN_VERSION,
+  STATIC_URL,
+} from '@/config';
 import router from '@/router';
 import store from '@/store';
-import API from '@/config/api';
 import filters from '@/filters';
-import App from '@/App.vue';
-import { ENV, GAME_NAME } from '@/config';
+import { setObjectConst } from '@/utils/setObjectConst';
 import messages from '@/lang';
+
+import App from '@/App.vue';
+
+// 初始化通用函数
+steamgame.initSteam(Vue, STATIC_URL);
 
 // set vue i18n
 Vue.use(VueI18n);
-
 const i18n = new VueI18n({
   locale: 'en',
   fallbackLocale: 'cn',
@@ -38,13 +44,10 @@ MeishaWatch.init({
 Vue.use(MeishaWatch.useVue());
 
 // add filters
-addFilters(Vue, commonFilters);
 addFilters(Vue, filters);
 
 // set window const
-window.$http = $http;
-window.API = { ...API, ...COMMON_API };
-window.katex = katex;
+setObjectConst(window, { API, katex });
 
 Vue.config.productionTip = false;
 
@@ -70,12 +73,14 @@ $http
           })
           .then(res => {
             if (res.data) {
-              const lang = setAllGameLang(res.data);
-              i18n.locale = lang.local[GAME_NAME];
-              store.commit(
-                'SETISCANTOGGLELANG',
-                lang.server[GAME_NAME].length >= 2
+              const lang = steamgame.setGameLangToLocal(
+                res.data,
+                GAME_FRONT_ID,
+                GAME_SERVER_ID,
+                IS_GAME_HAS_EN_VERSION
               );
+              i18n.locale = lang.local;
+              store.commit('SETISCANTOGGLELANG', lang.server.length >= 2);
             }
             /* eslint-disable no-new */
             new Vue({

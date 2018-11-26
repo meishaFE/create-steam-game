@@ -7,6 +7,6 @@ export default {
   name: 'GameMain'
 };
 </script>
+<style lang="scss">
 
-<style>
 </style>

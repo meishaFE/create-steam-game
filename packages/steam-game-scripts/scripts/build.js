@@ -5,7 +5,6 @@ process.env.NODE_ENV = 'production';
 
 var ora = require('ora');
 var rm = require('rimraf');
-var path = require('path');
 var chalk = require('chalk');
 var webpack = require('webpack');
 var config = require('../config');
@@ -14,9 +13,7 @@ const utils = require('../build/utils');
 
 var spinner = ora('building for production...');
 spinner.start();
-console.log(config.build.assetsRoot);
-console.log(config.build.assetsSubDirectory);
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rm(config.build.assetsRoot, err => {
   if (err) {
     throw err;
   }

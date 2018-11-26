@@ -4,13 +4,14 @@
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
-const execSync = require('child_process').execSync;
 const os = require('os');
-const spawn = require('cross-spawn');
 
 const defaultBrowsers = ['> 1%', 'last 10 versions', 'not ie <= 8'];
 
-module.exports = function init(appPath, appName = 'steamGame') {
+module.exports = function init(
+  appPath = '/Users/jayden/usr/meisha/steamGameNew/games/chase',
+  appName = 'chase'
+) {
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
   // Copy over some of the devDependencies
@@ -20,7 +21,7 @@ module.exports = function init(appPath, appName = 'steamGame') {
   appPackage.scripts = {
     start: 'steam-game-scripts start',
     build: 'steam-game-scripts build',
-    test: 'steam-game-scripts test',
+    test: 'steam-game-scripts test'
   };
   appPackage.browserslist = defaultBrowsers;
 
@@ -38,7 +39,6 @@ module.exports = function init(appPath, appName = 'steamGame') {
   }
 
   const templatePath = path.join(__dirname, '../template');
-  console.log(templatePath);
   if (fs.existsSync(templatePath)) {
     fs.copySync(templatePath, appPath);
   } else {
@@ -63,6 +63,8 @@ module.exports = function init(appPath, appName = 'steamGame') {
   console.log('    Bundles the app into static files for production.');
   console.log();
   console.log(
-    `${chalk.cyan('  Please goto config to update')}${chalk.red(' GAME_NAME')}`
+    `${chalk.cyan('  Please goto config to update')}${chalk.red(
+      ' GAME_NAME'
+    )} & ${chalk.red(' GAME_ID')} & ${chalk.red(' IS_GAME_HAS_EN_VERSION')}`
   );
 };

@@ -3,10 +3,10 @@ import cn from './zhCn';
 
 const messages = {
   en: {
-    ...en,
+    ...en
   },
   cn: {
-    ...cn,
-  },
+    ...cn
+  }
 };
 export default messages;

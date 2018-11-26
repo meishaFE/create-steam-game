@@ -1,6 +1,7 @@
-import { BASE_URL } from './index';
-
-const API = {};
+import { BASE_URL } from './env';
+const API = {
+  COMMON: { ...steamgame.CONFIG.COMMON_API }
+};
 
 /**
  * 根据环境不同加前缀

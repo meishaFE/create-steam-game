@@ -51,12 +51,12 @@ if (program.info) {
         Binaries: ['Node', 'npm', 'Yarn'],
         Browsers: ['Chrome', 'Edge', 'Internet Explorer', 'Firefox', 'Safari'],
         npmPackages: ['steam-game-scripts'],
-        npmGlobalPackages: ['create-steam-game'],
+        npmGlobalPackages: ['create-steam-game']
       },
       {
         clipboard: true,
         duplicates: true,
-        showNotFound: true,
+        showNotFound: true
       }
     )
     .then(console.log)
@@ -109,7 +109,7 @@ function createSteamGame(name, packages) {
   const packageJson = {
     name: gameName,
     version: '0.1.0',
-    private: true,
+    private: true
   };
 
   fs.writeFileSync(
@@ -130,7 +130,8 @@ function run(root, gameName, packages, useYarn) {
     'vuex',
     'meisha-fe-watch',
     'katex',
-    ...packages,
+    'vue-i18n',
+    ...packages
   ];
 
   const allDevDependencies = ['steam-game-scripts'];
@@ -150,7 +151,7 @@ function run(root, gameName, packages, useYarn) {
       await executeNodeScript(
         {
           cwd: root,
-          args: [],
+          args: []
         },
         [root, gameName],
         `
@@ -239,7 +240,7 @@ function install(root, useYarn, dependencies, isOnline, isDev = false) {
     child.on('close', code => {
       if (code !== 0) {
         reject({
-          command: `${command} ${args.join(' ')}`,
+          command: `${command} ${args.join(' ')}`
         });
         return;
       }
@@ -365,7 +366,7 @@ function executeNodeScript({ cwd, args }, data, source) {
     child.on('close', code => {
       if (code !== 0) {
         reject({
-          command: `node ${args.join(' ')}`,
+          command: `node ${args.join(' ')}`
         });
         return;
       }
