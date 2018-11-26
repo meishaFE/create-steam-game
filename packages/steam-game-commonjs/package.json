@@ -50,5 +50,6 @@
     "mathjs-geo": "^1.0.2",
     "rollup-plugin-json": "^3.1.0",
     "superagent": "^3.8.3"
-  }
+  },
+  "gitHead": "f1e2f5c83cf123be20e75de5bf8d295fb59543d2"
 }
