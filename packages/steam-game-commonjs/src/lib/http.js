@@ -1,4 +1,4 @@
-/* eslint-disbaled indent */
+/* eslint-disable indent */
 /**
  * 请求统一处理方法, 支持GET、POST请求、加载JSON文件
  *
