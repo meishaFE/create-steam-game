@@ -1,6 +1,6 @@
 {
   "name": "steam-game-commonjs",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Steam Game common JavaScripts",
   "main": "dist/steamgame.js",
   "browser": "dist/steamgame.js",
