@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import { GAME_FRONT_ID } from './config';
+
 Vue.use(Router);
 
 export default new Router({

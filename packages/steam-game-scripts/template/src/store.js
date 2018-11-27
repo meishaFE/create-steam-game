@@ -7,11 +7,8 @@ const state = Object.assign(
     userInfo: {},
     sessionInfo: {},
     gameInfo: {},
-
     gameList: [], // 金币游戏列表
-
     playId: '', // 线路计算正确后才会有的游戏id
-
     isCanToggleLang: false, // 是否可以切换语言
     gameOver: false // 游戏是否结束
   },

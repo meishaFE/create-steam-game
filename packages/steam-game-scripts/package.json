@@ -88,5 +88,5 @@
     "webpack-merge": "^4.1.4",
     "webpack-stats-plugin": "^0.2.1"
   },
-  "gitHead": "7d04513f41409ed809b868b71d64ece3939749d1"
+  "gitHead": "dee844c89bb0ca218b93e85b29724e09c3130d9e"
 }
