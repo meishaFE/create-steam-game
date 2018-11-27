@@ -3,7 +3,7 @@ export default (obj, args) => {
     obj[key] = {
       value: args[key],
       writable: false,
-      configurable: false,
+      configurable: false
     };
     return obj;
   }, {});

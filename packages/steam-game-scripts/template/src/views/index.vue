@@ -388,8 +388,6 @@ export default {
 .game {
   width: 100%;
   height: 100%;
-  background: url('/game/chase/static/img/pic_background.png') center -80% / auto 120%
-    no-repeat rgba(85, 94, 251, 1);
   &__content {
     position: relative;
     height: calc(100% - 0.54rem);
