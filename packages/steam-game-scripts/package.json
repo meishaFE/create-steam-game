@@ -13,7 +13,6 @@
     "config",
     "template",
     "bin",
-    "yarn.lock.cached",
     "build"
   ],
   "engines": {
