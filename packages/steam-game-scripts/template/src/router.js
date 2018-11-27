@@ -10,12 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'Main',
-      component: () => import('./views/main.vue'),
-    },
-    // {
-    //   path: '/earn',
-    //   component: () => import('./views/earn.vue'),
-    //   children: [...earnRouter],
-    // },
-  ],
+      component: () => import('./views/main.vue')
+    }
+  ]
 });

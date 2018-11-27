@@ -13,7 +13,7 @@ const state = Object.assign(
     playId: '', // 线路计算正确后才会有的游戏id
 
     isCanToggleLang: false, // 是否可以切换语言
-    gameOver: false, // 游戏是否结束
+    gameOver: false // 游戏是否结束
   },
   steamgame.miniModule.state
 );
@@ -40,7 +40,7 @@ const mutations = Object.assign(
     },
     SETGAMEOVER(state, gameOver) {
       state.gameOver = gameOver;
-    },
+    }
   },
   steamgame.miniModule.mutations
 );
@@ -54,8 +54,8 @@ const actions = Object.assign(
             API.COMMON.SESSION_INFO,
             {
               data: {
-                classId: state.userInfo.classId,
-              },
+                classId: state.userInfo.classId
+              }
             },
             true
           )
@@ -89,8 +89,8 @@ const actions = Object.assign(
                 studentId: state.userInfo.userId,
                 roundId: state.sessionInfo.roundId,
                 sessionId: state.sessionInfo.sessionId,
-                gameId: state.sessionInfo.gameId,
-              },
+                gameId: state.sessionInfo.gameId
+              }
             },
             true
           )
@@ -117,8 +117,8 @@ const actions = Object.assign(
             data: {
               sessionId: state.sessionInfo.sessionId,
               perPage: 20,
-              currentPage: 1,
-            },
+              currentPage: 1
+            }
           },
           true
         )
@@ -131,7 +131,7 @@ const actions = Object.assign(
           },
           () => {}
         );
-    },
+    }
   },
   steamgame.miniModule.actions
 );
@@ -158,7 +158,7 @@ const getters = Object.assign(
     },
     gameOver(state) {
       return state.gameOver;
-    },
+    }
   },
   steamgame.miniModule.getters
 );
@@ -172,5 +172,5 @@ export default new Vuex.Store({
   mutations,
   actions,
   getters,
-  strict: debug,
+  strict: debug
 });

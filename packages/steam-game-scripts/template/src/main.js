@@ -12,12 +12,12 @@ import {
   GAME_SERVER_ID,
   GAME_FRONT_ID,
   IS_GAME_HAS_EN_VERSION,
-  STATIC_URL,
+  STATIC_URL
 } from '@/config';
 import router from '@/router';
 import store from '@/store';
 import filters from '@/filters';
-import { setObjectConst } from '@/utils/setObjectConst';
+import setObjectConst from '@/utils/setObjectConst';
 import messages from '@/lang';
 
 import App from '@/App.vue';
@@ -30,7 +30,7 @@ Vue.use(VueI18n);
 const i18n = new VueI18n({
   locale: 'en',
   fallbackLocale: 'cn',
-  messages,
+  messages
 });
 
 // init meisha-watch
@@ -38,7 +38,7 @@ MeishaWatch.init({
   isReport: ENV.prod,
   reportURL: '//log-server-web.meishakeji.com/log/js',
   projectId: 'steamfe',
-  partitionId: 'steamGame',
+  partitionId: 'steamGame'
 });
 
 Vue.use(MeishaWatch.useVue());
@@ -56,8 +56,8 @@ $http
     API.COMMON.CHECK_AUTH,
     {
       data: {
-        auth: window.localStorage.getItem('auth'),
-      },
+        auth: window.localStorage.getItem('auth')
+      }
     },
     true
   )
@@ -69,7 +69,7 @@ $http
         store.commit('SETUSERINFO', JSON.parse(userInfo));
         $http
           .post(API.COMMON.LANG, {
-            data: { classId: JSON.parse(userInfo).classId },
+            data: { classId: JSON.parse(userInfo).classId }
           })
           .then(res => {
             if (res.data) {
@@ -89,7 +89,7 @@ $http
               store,
               i18n,
               components: { App },
-              template: '<App/>',
+              template: '<App/>'
             });
           });
       } else {
