@@ -1,0 +1,59 @@
+.dialog-container {
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 0;
+  text-align: center;
+  &:before {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    content: "";
+  }
+  .icon-close {
+    position: absolute;
+    z-index: 2;
+    top: .1rem;
+    right: .1rem;
+    width: .3rem;
+    height: .3rem;
+    background: url("../../assets/img/icon_close.png") center/.13rem .13rem no-repeat;
+    cursor: pointer;
+  }
+
+  &.is-nobefore {
+    &::before {
+      display: none !important;
+    }
+  }
+
+  &.is-cover-header {
+    position: fixed;
+  }
+}
+
+.dialog-container--part {
+  height: calc(100% - .54rem);
+  top: .54rem;
+}
+
+.dialog-container--z9 {
+  z-index: 9 !important;
+}
+
+.dialog-container--z15 {
+  z-index: 15;
+}
+
+.dialog-container--maxtop {
+  z-index: 999;
+}
+
+.dialog-container--fixed {
+  position: fixed;
+  @extend .dialog-container--part;
+}

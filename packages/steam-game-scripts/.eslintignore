@@ -1,0 +1,8 @@
+/build
+/config
+/dist
+/*.js
+/src/lib
+/steamGame
+/static
+fabric.js
