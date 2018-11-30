@@ -118,7 +118,9 @@ const actions = {
   getGameConfig({ commit }) {
     return new Promise(resolve => {
       $http
-        .getJSON(`/game/static/gameSettings.json?t=${new Date().getTime()}`)
+        .getJSON(
+          `https://cdn.meishakeji.com/steamfe/gameSettings.json?t=${new Date().getTime()}`
+        )
         .then(
           res => {
             if (res && res.visible && res.mp) {
