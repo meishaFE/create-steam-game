@@ -3,15 +3,18 @@ require('../build/check-versions')();
 
 process.env.NODE_ENV = 'production';
 
-var ora = require('ora');
-var rm = require('rimraf');
-var chalk = require('chalk');
-var webpack = require('webpack');
-var config = require('../config');
-var webpackConfig = require('../build/webpack.prod.conf');
+const ora = require('ora');
+const rm = require('rimraf');
+const chalk = require('chalk');
+const webpack = require('webpack');
+const config = require('../config');
+const webpackConfigFa = require('../build/webpack.prod.conf');
 const utils = require('../build/utils');
+const pkg = require(utils.resolveApp('package.json'));
+const gameName = pkg.name;
+const webpackConfig = webpackConfigFa(gameName);
 
-var spinner = ora('building for production...');
+const spinner = ora('building for production...');
 spinner.start();
 rm(config.build.assetsRoot, err => {
   if (err) {
