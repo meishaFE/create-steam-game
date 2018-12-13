@@ -20,7 +20,7 @@ rm(config.build.assetsRoot, err => {
   if (err) {
     throw err;
   }
-  utils.copyStaticFiles();
+  utils.copyStaticFiles(utils.resolveApp(gameName));
   webpack(webpackConfig, function(err, stats) {
     spinner.stop();
     if (err) {
