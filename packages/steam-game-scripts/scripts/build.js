@@ -7,7 +7,6 @@ const ora = require('ora');
 const rm = require('rimraf');
 const chalk = require('chalk');
 const webpack = require('webpack');
-const config = require('../config');
 const webpackConfigFa = require('../build/webpack.prod.conf');
 const utils = require('../build/utils');
 const pkg = require(utils.resolveApp('package.json'));
@@ -16,7 +15,7 @@ const webpackConfig = webpackConfigFa(gameName);
 
 const spinner = ora('building for production...');
 spinner.start();
-rm(config.build.assetsRoot, err => {
+rm(utils.resolveApp(gameName), err => {
   if (err) {
     throw err;
   }
