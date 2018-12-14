@@ -12,7 +12,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 module.exports = {
   dev: {
     // Paths
-    assetsSubDirectory: '/static',
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/game/',
     proxyTable,
 
@@ -49,7 +49,7 @@ module.exports = {
 
   build: {
     assetsRoot: resolveApp('dist'),
-    assetsSubDirectory: '/static',
+    assetsSubDirectory: 'static',
 
     /**
      * Source Maps
