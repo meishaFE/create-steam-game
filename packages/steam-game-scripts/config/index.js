@@ -5,13 +5,14 @@
 const path = require('path');
 const host = 'localhost';
 const port = 7799;
+const proxyTarget = 'https://test-steam.meishakeji.com';
 const proxyTable = {
   '/game/minigamecommon': {
-    target: 'https://test-steam.meishakeji.com',
+    target: proxyTarget,
     changeOrigin: true
   },
   '/game/mini/static': {
-    target: 'https://test-steam.meishakeji.com',
+    target: proxyTarget,
     changeOrigin: true
   }
 };
