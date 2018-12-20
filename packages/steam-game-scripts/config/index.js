@@ -9,6 +9,10 @@ const proxyTable = {
   '/game/minigamecommon': {
     target: 'https://test-steam.meishakeji.com',
     changeOrigin: true
+  },
+  '/game/mini/static': {
+    target: 'https://test-steam.meishakeji.com',
+    changeOrigin: true
   }
 };
 const fs = require('fs');
