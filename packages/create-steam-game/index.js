@@ -134,7 +134,7 @@ function run(root, gameName, packages, useYarn) {
     ...packages
   ];
 
-  const allDevDependencies = ['steam-game-scripts@0.0.13'];
+  const allDevDependencies = ['steam-game-scripts'];
 
   console.log('Installing packages. This might take a couple of minutes.');
 
