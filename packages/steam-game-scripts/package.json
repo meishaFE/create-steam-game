@@ -19,6 +19,9 @@
     "node": ">=9",
     "npm": ">= 6.0.0"
   },
+  "peerDependencies": {
+    "vue-template-compiler": "^2.5.21"
+  },
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
@@ -81,7 +84,6 @@
     "vue-hot-reload-api": "^2.3.1",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.5.21",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
