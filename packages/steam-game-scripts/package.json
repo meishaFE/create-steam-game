@@ -81,12 +81,16 @@
     "vue-hot-reload-api": "^2.3.1",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "2.5.17",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
     "webpack-stats-plugin": "^0.2.1"
   },
-  "gitHead": "dee844c89bb0ca218b93e85b29724e09c3130d9e"
+  "gitHead": "dee844c89bb0ca218b93e85b29724e09c3130d9e",
+  "devDependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0-beta.2",
+    "terser-webpack-plugin": "^1.2.1"
+  }
 }

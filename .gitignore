@@ -62,7 +62,6 @@ typings/
 
 .idea/
 .vscode/
-build
 .DS_Store
 *.tgz
 template/src/__tests__/__snapshots__/
