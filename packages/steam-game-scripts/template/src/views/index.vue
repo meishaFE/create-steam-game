@@ -90,7 +90,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import GameHeader from '@/components/GameHeader';
-import GameEndDlg from '@/components/GameEndDialog';
+import GameEndDlg from '@/dialog/end';
 import { GAME_NAME, GAME_FRONT_ID } from '@/config';
 
 export default {
@@ -388,6 +388,7 @@ export default {
 .game {
   width: 100%;
   height: 100%;
+  background: rgba(85, 94, 251, 1);
   &__content {
     position: relative;
     height: calc(100% - 0.54rem);

@@ -1,30 +1,28 @@
 'use strict';
-require('../build/check-versions')();
+require('./check-versions')();
 
 process.env.NODE_ENV = 'production';
 
 const ora = require('ora');
 const rm = require('rimraf');
+const path = require('path');
 const chalk = require('chalk');
 const webpack = require('webpack');
-const webpackConfigFa = require('../build/webpack.prod.conf');
-const utils = require('../build/utils');
+const config = require('../config');
+const webpackConfigFa = require('./webpack.prod.conf');
+const utils = require('./utils');
 const pkg = require(utils.resolveApp('package.json'));
 const gameName = pkg.name;
 const webpackConfig = webpackConfigFa(gameName);
-
+console.log(webpackConfig);
 const spinner = ora('building for production...');
 spinner.start();
-rm(utils.resolveApp(gameName), err => {
-  if (err) {
-    throw err;
-  }
-  utils.copyStaticFiles(utils.resolveApp(gameName));
+rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+  if (err) throw err;
+  utils.copyStaticFiles();
   webpack(webpackConfig, function(err, stats) {
     spinner.stop();
-    if (err) {
-      throw err;
-    }
+    if (err) throw err;
     process.stdout.write(
       stats.toString({
         colors: true,

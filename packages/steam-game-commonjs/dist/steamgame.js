@@ -1004,13 +1004,13 @@ var steamgame = (function(t) {
         );
       }
     },
-    N = function(t, r) {
+    k = function(t, r) {
       var e = Object.keys(r).reduce(function(t, e) {
         return (t[e] = { value: r[e], writable: !1, configurable: !1 }), t;
       }, {});
       return Object.defineProperties(t, e), t;
     };
-  var k = Object.freeze({
+  var N = Object.freeze({
       COMMON_API: {
         CHECK_AUTH: 'account/check_auth',
         SESSION_INFO: 'student/games/common/get_session_info',
@@ -1136,7 +1136,9 @@ var steamgame = (function(t) {
           var r = t.commit;
           return new Promise(function(e) {
             S(
-              '/game/static/gameSettings.json?t='.concat(new Date().getTime())
+              'https://cdn.meishakeji.com/steamfe/gameSettings.json?t='.concat(
+                new Date().getTime()
+              )
             ).then(
               function(t) {
                 t &&
@@ -1700,9 +1702,9 @@ var steamgame = (function(t) {
     (t.initSteam = function(t) {
       var e =
         1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : '';
-      e && N(window, { STATIC_URL: e }), N(window, { $http: O }), t.use(A);
+      e && k(window, { STATIC_URL: e }), k(window, { $http: O }), t.use(A);
     }),
-    (t.CONFIG = k),
+    (t.CONFIG = N),
     (t.miniModule = C),
     (t.addLine = function(t, e, r) {
       for (
@@ -1935,8 +1937,8 @@ var steamgame = (function(t) {
         var i = localStorage.getItem('lang')
             ? JSON.parse(localStorage.getItem('lang'))
             : {},
-          o = t[r],
-          s = i[e],
+          o = t[r] || [],
+          s = i[e] || '',
           a = o.some(function(t) {
             return 'en' === t;
           }),
@@ -1944,16 +1946,18 @@ var steamgame = (function(t) {
             return 'zh-cn' === t;
           });
         return (
-          !s || c(s, 'Array')
-            ? (i[e] = a && n ? 'en' : 'cn')
-            : 'cn' !== s || u
-              ? 'en' !== s || a || (i[e] = 'cn')
-              : (i[e] = 'en'),
+          o.length
+            ? !s || c(s, 'Array')
+              ? (i[e] = a && n ? 'en' : 'cn')
+              : 'cn' !== s || u
+                ? 'en' !== s || a || (i[e] = 'cn')
+                : (i[e] = 'en')
+            : (i[e] = 'cn'),
           localStorage.setItem('lang', JSON.stringify(i)),
           { local: s, server: o }
         );
       } catch (t) {
-        return { local: 'cn', server: 'cn' };
+        return { local: 'cn', server: [] };
       }
     }),
     (t.isType = c),

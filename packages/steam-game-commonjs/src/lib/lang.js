@@ -111,12 +111,14 @@ function setGameLangToLocal(
     const localGameLangs = localStorage.getItem('lang')
       ? JSON.parse(localStorage.getItem('lang'))
       : {};
-    const serverLang = serverGameLangs[gameServerId];
-    const localLang = localGameLangs[gameFrontId];
+    const serverLang = serverGameLangs[gameServerId] || [];
+    const localLang = localGameLangs[gameFrontId] || '';
     const serverLangHadEn = serverLang.some(l => l === 'en');
     const serverLangHadCn = serverLang.some(l => l === 'zh-cn');
 
-    if (!localLang || isType(localLang, 'Array')) {
+    if (!serverLang.length) {
+      localGameLangs[gameFrontId] = 'cn';
+    } else if (!localLang || isType(localLang, 'Array')) {
       // 没设置本地语言
       localGameLangs[gameFrontId] =
         serverLangHadEn && isGameHadEn ? 'en' : 'cn';
@@ -137,7 +139,7 @@ function setGameLangToLocal(
     console.error(error);
     return {
       local: 'cn',
-      server: 'cn'
+      server: []
     };
   }
 }

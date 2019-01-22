@@ -5,7 +5,17 @@
 const path = require('path');
 const host = 'localhost';
 const port = 7799;
-const proxyTable = {};
+const proxyTarget = 'https://test-steam.meishakeji.com';
+const proxyTable = {
+  '/game/minigamecommon': {
+    target: proxyTarget,
+    changeOrigin: true
+  },
+  '/game/mini/static': {
+    target: proxyTarget,
+    changeOrigin: true
+  }
+};
 const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
