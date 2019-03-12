@@ -106,17 +106,15 @@ const webpackConfig = gameName =>
       new webpack.HashedModuleIdsPlugin(),
       // enable scope hoisting
       new webpack.optimize.ModuleConcatenationPlugin(),
-      config.build.productionGzip &&
-        new CompressionWebpackPlugin({
-          asset: '[path].gz[query]',
-          algorithm: 'gzip',
-          test: new RegExp(
-            '\\.(' + config.build.productionGzipExtensions.join('|') + ')$'
-          ),
-          threshold: 10240,
-          minRatio: 0.8
-        }),
-      config.build.bundleAnalyzerReport && new BundleAnalyzerPlugin()
+      new CompressionWebpackPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: new RegExp(
+          '\\.(' + config.build.productionGzipExtensions.join('|') + ')$'
+        ),
+        threshold: 10240,
+        minRatio: 0.8
+      })
     ]
   });
 
