@@ -135,7 +135,7 @@ function run(root, gameName, packages, useYarn) {
     ...packages
   ];
 
-  const allDevDependencies = ['steam-game-scripts'];
+  const allDevDependencies = ['steam-game-scripts', 'vue-template-compiler'];
 
   console.log('Installing packages. This might take a couple of minutes.');
 
