@@ -1,6 +1,6 @@
 {
   "name": "@msfe/create-steam-game",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Create steam games with no build configuration.",
   "author": "Jayden<jxdjayden@gmail.com>",
   "license": "MIT",
