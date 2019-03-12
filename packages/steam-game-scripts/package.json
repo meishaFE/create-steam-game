@@ -15,6 +15,9 @@
     "bin",
     "build"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=9",
     "npm": ">= 6.0.0"
@@ -90,7 +93,7 @@
     "webpack-merge": "^4.1.4",
     "webpack-stats-plugin": "^0.2.1"
   },
-  "gitHead": "dee844c89bb0ca218b93e85b29724e09c3130d9e",
+  "gitHead": "12a9be9709fe165071c34b3dc56959d0c5490569",
   "devDependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0-beta.2",
     "terser-webpack-plugin": "^1.2.1"
