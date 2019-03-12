@@ -1,5 +1,5 @@
 {
-  "name": "steam-game-commonjs",
+  "name": "@msfe/steam-game-commonjs",
   "version": "0.0.9",
   "description": "Steam Game common JavaScripts",
   "main": "dist/steamgame.js",

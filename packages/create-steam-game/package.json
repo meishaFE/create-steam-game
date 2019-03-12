@@ -1,5 +1,5 @@
 {
-  "name": "create-steam-game",
+  "name": "@msfe/create-steam-game",
   "version": "0.0.11",
   "description": "Create steam games with no build configuration.",
   "author": "Jayden<jxdjayden@gmail.com>",

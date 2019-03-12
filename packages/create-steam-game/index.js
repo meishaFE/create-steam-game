@@ -206,7 +206,7 @@ function install(root, useYarn, dependencies, isOnline, isDev = false) {
 
     if (useYarn) {
       command = 'yarnpkg';
-      args = ['add', '--exact'];
+      args = ['add'];
 
       if (isDev) {
         args.push('--dev');
@@ -227,7 +227,7 @@ function install(root, useYarn, dependencies, isOnline, isDev = false) {
       }
     } else {
       command = 'npm';
-      args = ['install', '--save', '--save-exact', '--loglevel', 'error'];
+      args = ['install', '--save', '--loglevel', 'error'];
 
       if (isDev) {
         args.push('--save-dev');
@@ -338,7 +338,7 @@ function nodeMajorVersionCheck(majorLimit) {
         'You are running Node ' +
           currentNodeVersion +
           '.\n' +
-          'Create Steam Game requires Node 9 or higher. \n' +
+          `Create Steam Game requires Node ${majorLimit} or higher. \n` +
           'Please update your version of Node.'
       )
     );

@@ -8,10 +8,7 @@ const os = require('os');
 
 const defaultBrowsers = ['> 1%', 'last 10 versions', 'not ie <= 8'];
 
-module.exports = function init(
-  appPath = '/Users/jayden/usr/meisha/steamGameNew/games/chase',
-  appName = 'chase'
-) {
+module.exports = function init(appPath, appName) {
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
   // Copy over some of the devDependencies
