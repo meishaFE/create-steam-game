@@ -1,6 +1,6 @@
 {
   "name": "@msfe/steam-game-commonjs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Steam Game common JavaScripts",
   "main": "dist/steamgame.js",
   "browser": "dist/steamgame.js",
