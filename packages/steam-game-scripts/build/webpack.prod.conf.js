@@ -9,17 +9,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
-const webpackConfig = gameName => {
-  if (config.build.productionGzip) {
-    const CompressionWebpackPlugin = require('compression-webpack-plugin');
-  }
-  if (config.build.bundleAnalyzerReport) {
-    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-      .BundleAnalyzerPlugin;
-  }
-
-  return merge(baseWebpackConfig, {
+const webpackConfig = gameName =>
+  merge(baseWebpackConfig, {
     mode: 'production',
     performance: {
       hints: false
@@ -124,6 +119,5 @@ const webpackConfig = gameName => {
       config.build.bundleAnalyzerReport && new BundleAnalyzerPlugin()
     ]
   });
-};
 
 module.exports = webpackConfig;
