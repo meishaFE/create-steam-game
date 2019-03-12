@@ -135,7 +135,7 @@ function run(root, gameName, packages, useYarn) {
     ...packages
   ];
 
-  const allDevDependencies = ['@msfe/steam-game-scripts'];
+  const allDevDependencies = ['steam-game-scripts'];
 
   console.log('Installing packages. This might take a couple of minutes.');
 
@@ -156,7 +156,7 @@ function run(root, gameName, packages, useYarn) {
         },
         [root, gameName],
         `
-      var init = require('@msfe/steam-game-scripts/scripts/init.js');
+      var init = require('steam-game-scripts/scripts/init.js');
       init.apply(null, JSON.parse(process.argv[1]));
       `
       );

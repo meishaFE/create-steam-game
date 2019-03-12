@@ -1,5 +1,5 @@
 {
-  "name": "@msfe/steam-game-scripts",
+  "name": "steam-game-scripts",
   "version": "0.0.28",
   "description": "Configuration and scripts for steam game.",
   "main": "null",
