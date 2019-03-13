@@ -1,11 +1,14 @@
 {
   "name": "create-steam-game",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "description": "Create steam games with no build configuration.",
   "author": "Jayden<jxdjayden@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=4"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "index.js",
@@ -26,5 +29,5 @@
     "tmp": "^0.0.33",
     "validate-npm-package-name": "^3.0.0"
   },
-  "gitHead": "f1e2f5c83cf123be20e75de5bf8d295fb59543d2"
+  "gitHead": "12a9be9709fe165071c34b3dc56959d0c5490569"
 }

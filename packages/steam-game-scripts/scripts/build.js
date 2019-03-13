@@ -15,6 +15,7 @@ const webpackConfig = webpackConfigFa(gameName);
 
 const spinner = ora('building for production...');
 spinner.start();
+
 rm(utils.resolveApp(gameName), err => {
   if (err) {
     throw err;
